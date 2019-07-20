@@ -51,6 +51,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://custom-components.github.io/hacs/faq/</loc>
      <lastmod>2019-07-20</lastmod>
      <changefreq>daily</changefreq>
