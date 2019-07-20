@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://custom-components.github.io/hacs/installation/terminal/">
+        <link rel="canonical" href="https://custom-components.github.io/hacs/usage/theming/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Terminal - HACS</title>
+        <title>Theming - HACS</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -50,20 +50,20 @@
                             <li >
                                 <a href="../..">Home</a>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Installation <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../manual/">Manual</a>
-</li>
-                                    
-<li class="active">
-    <a href="./">Terminal</a>
+    <a href="../../installation/manual/">Manual</a>
 </li>
                                     
 <li >
-    <a href="../configuration/">Configuration</a>
+    <a href="../../installation/terminal/">Terminal</a>
+</li>
+                                    
+<li >
+    <a href="../../installation/configuration/">Configuration</a>
 </li>
                                 </ul>
                             </li>
@@ -72,23 +72,23 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../usage/overview/">Overview</a>
+    <a href="../overview/">Overview</a>
 </li>
                                     
 <li >
-    <a href="../../usage/store/">Store</a>
+    <a href="../store/">Store</a>
 </li>
                                     
 <li >
-    <a href="../../usage/settings/">Settings</a>
+    <a href="../settings/">Settings</a>
 </li>
                                     
 <li >
-    <a href="../../usage/repository/">Repository</a>
+    <a href="../repository/">Repository</a>
 </li>
                                     
 <li >
-    <a href="../../usage/gallery/">Gallery</a>
+    <a href="../gallery/">Gallery</a>
 </li>
                                     
 <li >
@@ -142,18 +142,8 @@
                         </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                            <li >
-                                <a rel="next" href="../manual/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../configuration/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                             <li>
-                                <a href="https://github.com/custom-components/hacs/edit/master/docs/installation/terminal.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/custom-components/hacs/edit/master/docs/usage/theming.md"><i class="fa fa-github"></i> Edit on GitHub</a>
                             </li>
                     </ul>
                 </div>
@@ -163,26 +153,45 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#installation-using-the-terminal">Installation using the terminal</a></li>
+        <li class="main active"><a href="#theming">Theming</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="installation-using-the-terminal">Installation using the terminal<a class="headerlink" href="#installation-using-the-terminal" title="Permanent link">&para;</a></h1>
-<p>To download via terminal, make sure you have <code>git</code> installed.</p>
-<p>Next, Navigate to your custom_components directory:</p>
-<p><code>cd /config/custom_components</code> # This location is different from installation to installation (see step 5).</p>
-<p>Then run the following commands:</p>
-<pre><code class="bash">git clone https://github.com/custom-components/hacs.git hacs_temp
-cd hacs_temp
-git checkout $(git describe --tags --always $(git rev-list --tags --max-count=1000) | grep -e &quot;[0-9]\+\.[0-9]\+\.[0-9]\+$&quot; | head -n 1)
-cd ../
-cp -r hacs_temp/custom_components/hacs hacs
-rm -R hacs_temp
-</code></pre>
-
-<p>Restart Home Assistant once before moving on to the configuration.</p>
-<p><a href="../configuration">You should now be done, next part will be to add it to your configuration.</a></p>
+<h1 id="theming">Theming<a class="headerlink" href="#theming" title="Permanent link">&para;</a></h1>
+<p>HACS will try to match your Home Assistant theme as much as possible. There are also several variables you can use in your <code>themes.yaml</code> file to theme HACS further:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hacs-badge-color</code></td>
+<td>Controls the background color on the "NEW" badges in the store, and the custom repository type badges in settings</td>
+</tr>
+<tr>
+<td><code>hacs-badge-text-color</code></td>
+<td>Controls the text color on the "NEW" badges in the store, and the custom repository type badges in settings</td>
+</tr>
+<tr>
+<td><code>hacs-status-installed</code></td>
+<td>Controls the icon color for installed, up-to-date components</td>
+</tr>
+<tr>
+<td><code>hacs-status-pending-restart</code></td>
+<td>Controls the icon color for installed components that are awaiting a Home Assistant restart</td>
+</tr>
+<tr>
+<td><code>hacs-status-pending-update</code></td>
+<td>Controls the icon color for installed components that have an update available</td>
+</tr>
+</tbody>
+</table>
+<p>Here's a basic example of customizing one of these variables in <code>themes.yaml</code>:</p>
+<p><code>hacs-badge-text-color: "var(--text-primary-color)"</code></p>
 <!-- Disable sidebar -->
 
 <script>
