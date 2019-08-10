@@ -222,7 +222,7 @@ If you make local changes to a plugin in the <code>.js</code> file, delete the <
 <p>The files are downloaded to <code>&lt;config_dir&gt;/themes/*</code></p>
 <p>For this to work you need to include the themes directory like this:</p>
 <pre><code class="yaml">frontend:
-  themes: !include_dir_named themes
+  themes: !include_dir_merge_named themes
 </code></pre>
 
 <hr />
