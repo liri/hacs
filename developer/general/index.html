@@ -229,13 +229,42 @@ In addition to the defaut templates of Jijna these are added:</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Examlpe:</strong></p>
+<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h4>
+<h5 id="prerelease">Prerelease<a class="headerlink" href="#prerelease" title="Permanent link">&para;</a></h5>
 <pre><code class="yaml">{% if prerelease %}
 ## NB!: This is a Beta version!
 {% endif %}
 </code></pre>
 
 <p><img alt="beta" src="../../images/beta.png" /></p>
+<h5 id="here-travel-time"><a href="https://github.com/eifinger/here_travel_time/blob/master/info.md">Here Travel Time</a><a class="headerlink" href="#here-travel-time" title="Permanent link">&para;</a></h5>
+<pre><code class="yaml">{% if installed %}
+# Changes as compared to your installed version:
+
+## Breaking Changes
+
+## Changes
+
+## Features
+
+{% if version_installed.replace(&quot;v&quot;, &quot;&quot;).replace(&quot;.&quot;,&quot;&quot;) | int &lt; 141  %}
+- Added `mode: bicycle`
+- Added `mode: publicTransportTimeTable` - Please look [here](https://developer.here.com/documentation/routing/topics/public-transport-routing.html) for differences between the two public modes.
+{% endif %}
+{% if version_installed.replace(&quot;v&quot;, &quot;&quot;).replace(&quot;.&quot;,&quot;&quot;) | int &lt; 142  %}
+- Release notes are shown in HACS depending on your installed version
+{% endif %}
+
+## Bugfixes
+
+{% if version_installed.replace(&quot;v&quot;, &quot;&quot;).replace(&quot;.&quot;,&quot;&quot;) | int &lt; 143  %}
+- Fix for `mode: publicTransportTimeTable` returning `No timetable route found`
+{% endif %}
+---
+{% endif %}
+</code></pre>
+
+<p><img alt="here" src="../../images/info_jinja_here.png" /></p>
 <h3 id="some-examples-of-infomd-files">Some examples of <code>info.md</code> files<a class="headerlink" href="#some-examples-of-infomd-files" title="Permanent link">&para;</a></h3>
 <h4 id="compact-custom-header"><a href="https://github.com/maykar/compact-custom-header/blob/1.0.4b9/info.md">Compact Custom Header</a><a class="headerlink" href="#compact-custom-header" title="Permanent link">&para;</a></h4>
 <p><img alt="cch" src="../../images/info_cch.PNG" /></p>
